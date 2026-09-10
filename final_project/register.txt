@@ -1,0 +1,5 @@
+Comando:
+curl.exe -X POST "http://localhost:5000/register" -H "Content-Type: application/json" --data-raw '{"username":"evidence-user","password":"REDACTED"}'
+
+Salida:
+{"message":"User successfully registered. Now you can login"}
