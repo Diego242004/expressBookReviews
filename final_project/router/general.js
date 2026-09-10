@@ -10,6 +10,11 @@ const getAllBooks = async (url = "http://localhost:5000/") => {
   return response.data;
 };
 
+const getBookByISBN = async (isbn, baseUrl = "http://localhost:5000") => {
+  const response = await axios.get(`${baseUrl}/isbn/${encodeURIComponent(isbn)}`);
+  return response.data;
+};
+
 
 public_users.post("/register", (req,res) => {
   const {username, password} = req.body;
@@ -85,3 +90,4 @@ public_users.get('/review/:isbn',function (req, res) {
 
 module.exports.general = public_users;
 module.exports.getAllBooks = getAllBooks;
+module.exports.getBookByISBN = getBookByISBN;
