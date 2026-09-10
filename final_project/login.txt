@@ -1,0 +1,5 @@
+Comando:
+curl.exe -X POST "http://localhost:5000/customer/login" -H "Content-Type: application/json" --data-raw '{"username":"login-evidence-user","password":"REDACTED"}'
+
+Salida:
+{"message":"User successfully logged in"}
