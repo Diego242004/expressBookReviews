@@ -20,6 +20,11 @@ const getBooksByAuthor = async (author, baseUrl = "http://localhost:5000") => {
   return response.data;
 };
 
+const getBooksByTitle = async (title, baseUrl = "http://localhost:5000") => {
+  const response = await axios.get(`${baseUrl}/title/${encodeURIComponent(title)}`);
+  return response.data;
+};
+
 
 public_users.post("/register", (req,res) => {
   const {username, password} = req.body;
@@ -97,3 +102,4 @@ module.exports.general = public_users;
 module.exports.getAllBooks = getAllBooks;
 module.exports.getBookByISBN = getBookByISBN;
 module.exports.getBooksByAuthor = getBooksByAuthor;
+module.exports.getBooksByTitle = getBooksByTitle;
