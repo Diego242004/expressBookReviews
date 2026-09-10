@@ -53,6 +53,27 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   return res.status(200).json({message: "Review successfully posted"});
 });
 
+// Delete a book review
+regd_users.delete("/auth/review/:isbn", (req, res) => {
+  const isbn = req.params.isbn;
+  const username = req.session.authorization && req.session.authorization.username;
+
+  if (!books[isbn]) {
+    return res.status(404).json({message: "Book not found"});
+  }
+
+  if (!username) {
+    return res.status(401).json({message: "User not logged in"});
+  }
+
+  if (!Object.prototype.hasOwnProperty.call(books[isbn].reviews, username)) {
+    return res.status(404).json({message: "Review not found"});
+  }
+
+  delete books[isbn].reviews[username];
+  return res.status(200).json({message: "Review successfully deleted"});
+});
+
 module.exports.authenticated = regd_users;
 module.exports.isValid = isValid;
 module.exports.users = users;
