@@ -1,0 +1,5 @@
+Comando:
+curl.exe -b review-cookies.txt -X PUT "http://localhost:5000/customer/auth/review/1?review=Excellent%20book"
+
+Salida:
+{"message":"Review successfully posted"}
