@@ -1,0 +1,5 @@
+Comando:
+$repository = curl.exe -s https://api.github.com/repos/Diego242004/expressBookReviews | ConvertFrom-Json; $repository.parent.full_name
+
+Salida:
+ibm-developer-skills-network/expressBookReviews
